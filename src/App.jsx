@@ -11,6 +11,7 @@ import CreateGroup from './pages/CreateGroup';
 import CreatePost from './pages/CreatePost';
 import GroupDetail from './pages/GroupDetail';
 import Groups from './pages/Groups';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
                 <Route path="/groups/new" element={<CreateGroup />} />
                 <Route path="/groups/:id" element={<GroupDetail />} />
                 <Route path="/posts/new" element={<CreatePost />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/profile/:userId" element={<Profile />} />
               </Route>
             </Routes>
           </div>

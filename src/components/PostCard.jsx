@@ -22,7 +22,14 @@ const PostCard = ({ post }) => {
         </p>
         <div className="flex justify-between items-center text-sm text-gray-500">
           <div>
-            <span>By {post.author?.username || 'Anonymous'}</span>
+            <span>By {post.author ? (
+              <Link 
+                to={`/profile/${post.author.id}`} 
+                className="text-blue-600 hover:text-blue-800 hover:underline"
+              >
+                {post.author.username}
+              </Link>
+            ) : 'Anonymous'}</span>
             <span className="mx-2">•</span>
             <span>{new Date(post.created_at).toLocaleDateString()}</span>
           </div>

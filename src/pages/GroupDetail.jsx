@@ -271,20 +271,28 @@ const GroupDetail = () => {
                     <ul className="divide-y divide-gray-200">
                       {members.map(member => (
                         <li key={member.id} className="px-4 py-3 flex justify-between items-center">
-                          <div className="flex items-center">
-                            {member.user.profile_picture && (
-                              <img 
-                                src={member.user.profile_picture} 
-                                alt={member.user.username} 
-                                className="h-8 w-8 rounded-full mr-3"
-                              />
-                            )}
-                            <div>
-                              <p className="font-medium">{member.user.username}</p>
-                              <p className="text-sm text-gray-500">{member.user.first_name} {member.user.last_name}</p>
+                          <Link to={`/profile/${member.user.id}`} className="flex items-center hover:bg-gray-50 rounded-md p-1 flex-grow">
+                            <div className="flex items-center">
+                              {member.user.profile_picture ? (
+                                <img 
+                                  src={member.user.profile_picture} 
+                                  alt={member.user.username} 
+                                  className="h-8 w-8 rounded-full mr-3"
+                                />
+                              ) : (
+                                <div className="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center mr-3">
+                                  <span className="text-gray-600 font-medium text-sm">
+                                    {member.user.username.charAt(0).toUpperCase()}
+                                  </span>
+                                </div>
+                              )}
+                              <div>
+                                <p className="font-medium text-blue-600">{member.user.username}</p>
+                                <p className="text-sm text-gray-500">{member.user.first_name} {member.user.last_name}</p>
+                              </div>
                             </div>
-                          </div>
-                          <span className="text-xs bg-gray-100 px-2 py-1 rounded-full">
+                          </Link>
+                          <span className="text-xs bg-gray-100 px-2 py-1 rounded-full ml-2">
                             {member.role || 'Member'}
                           </span>
                         </li>
