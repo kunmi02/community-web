@@ -166,7 +166,7 @@ const CreatePost = () => {
                   ))}
                 </select>
                 <p className="mt-1 text-xs text-gray-500">
-                  You can only create posts in groups you are a member of.
+                  You can only create posts in groups you created.
                 </p>
               </>
             ) : isLoadingGroups ? (
@@ -174,13 +174,13 @@ const CreatePost = () => {
             ) : (
               <div className="mt-2 p-4 bg-yellow-50 border border-yellow-200 rounded-md">
                 <p className="text-sm text-yellow-700 mb-2">
-                  You aren't a member of any groups yet. You need to join a group before you can create a post.
+                  You dont have any groups created yet. You need to create a group before you can create a post.
                 </p>
                 <a 
                   href="/groups" 
                   className="text-sm text-blue-600 hover:text-blue-800 font-medium"
                 >
-                  Browse groups to join →
+                  Create a group →
                 </a>
               </div>
             )}
